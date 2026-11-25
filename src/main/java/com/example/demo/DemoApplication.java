@@ -1,8 +1,8 @@
 package com.example.demo;
 
 import java.util.Scanner;
-import com.example.demo.UPIPayment;
 
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
@@ -29,8 +29,9 @@ public class DemoApplication {
         payment.pay(100.0);
         Refundable refundable = new UPIPayment();
         refundable.refund(50.0);
-    }   
-static void printMatrix(){
+    }  
+
+    static void printMatrix(){
     int[][] matrix = {
         {1, 2, 3},
         {4, 5, 6},
@@ -45,6 +46,18 @@ static void printMatrix(){
     }   
 }
 
+public int sum(int k) {
+        // if (k <= 0) {
+        //     return 0;
+        // } else {
+        //     return k + sum(k - 1);
+        // }
+
+    if(k <=0) 
+        return 0;
+    else 
+        return k + sum(k-1);
+}
 
     public static void main(String[] args) {
 
@@ -59,7 +72,7 @@ static void printMatrix(){
         int i = 1;
         int j ;
         while(i<9){
-            System.out.println("i = " + i);
+                System.out.println("i = " + i);
             i++;
             if(i==5){
                 System.out.println("i is 5, breaking the loop");
@@ -107,10 +120,12 @@ static void printMatrix(){
         } 
         System.out.println("-------------------");
 
-        TestClass methodTest = new TestClass(2,3);
+        TestClass methodTest = new TestClass(5,3);
     
         System.out.println("Multiply = " + methodTest.getmultiply());
         System.out.println("Factorial = " + methodTest.getFactorial());
+        System.out.println("Recursive Factorial = " + methodTest.getRecursiveFactorial());
+
 
         TestClass test1 = new TestClass(2,3,"Hello");
         System.out.println("String Value = " + test1.getStringValue());
@@ -146,6 +161,6 @@ static void printMatrix(){
                 System.out.println("i is neither 1 nor 2");
         }
 
-      //  SpringApplication.run(DemoApplication.class, args);        
+        SpringApplication.run(DemoApplication.class, args);        
     }
 }
